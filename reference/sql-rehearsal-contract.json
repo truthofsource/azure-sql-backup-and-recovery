@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared-not-executed",
+  "liveRestoreAuthorizedByThisFile": false,
+  "productionWritesAllowed": false,
+  "providerJobsOrSendersAllowed": false,
+  "newEndpointsOrDnsAllowed": false,
+  "rehearsal": {
+    "asset": "sql",
+    "source": "example-workforce-database",
+    "targetPrefix": "restore-drill-",
+    "sourceSchemaExpected": 181,
+    "isolation": "Dedicated disposable server/database; never restore over the source or attach its connection string to an application",
+    "readinessHolds": [
+      "cost/expiry reviewed",
+      "private caller path under existing network decision",
+      "custodian-only access before data becomes reachable",
+      "restored identities and outbound/send controls isolated"
+    ],
+    "acceptance": [
+      "point-in-time restore completes",
+      "schema and safe aggregate constraints match restore point",
+      "contained permissions reviewed and workloads denied",
+      "read-only representative queries",
+      "measured elapsed time and data-loss window",
+      "owned targets/grants removed; source unchanged"
+    ]
+  }
+}

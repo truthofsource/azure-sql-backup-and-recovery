@@ -1,0 +1,4 @@
+SUB='00000000-0000-4000-8000-000000000001'
+SERVER=f'/subscriptions/{SUB}/resourceGroups/rg-example-sql/providers/Microsoft.Sql/servers/sql-example'
+SNAPSHOT={'sourceId':SERVER+'/databases/workforce-example','sourceServerId':SERVER,'sourceName':'workforce-example','observedAtUtc':'2026-11-06T18:00:00Z','earliestRestoreDateUtc':'2026-10-23T18:00:00Z','retentionDays':14,'backupRedundancy':'Geo','sku':'S0','serverPublicNetworkAccess':'Disabled','entraOnly':True,'existingDatabases':['workforce-example'],'readiness':{name:True for name in ['custodianOnlyReviewed','containedUsersReviewed','privateCallerPathReviewed','sendersAndWorkersIsolated','sourceBindingsPreserved','targetCostAndExpiryReviewed']}}
+REQUEST={'sourceId':SNAPSHOT['sourceId'],'targetName':'restore-drill-fictional-001','targetServerId':SERVER,'restorePointUtc':'2026-11-05T18:00:00Z','method':'same-server-pitr','runId':'fictional-001'}

@@ -1,0 +1,20 @@
+{
+  "title": "Azure SQL Backup & Point-in-Time Recovery",
+  "domain": "AZURE SQL / PITR / GEO BACKUP / PRIVATE ACCESS",
+  "subtitle": "Keep the native backup policy explicit and prepare recovery without risking the source.",
+  "scenario": "A workforce application needs recovery from data mistakes and regional backup loss while preserving private SQL access and the keys/files its records depend on.",
+  "outcome": "Make production retention and redundancy inspectable, separate backup policy from restore acceptance and reject unsafe rehearsal targets.",
+  "flow": [
+    "Inspect exact source and backup window",
+    "Confirm production S0 / Geo / 14-day overrides",
+    "Review isolated target access, cost and expiry",
+    "Validate a fictional restore request locally",
+    "Keep the actual Azure restore explicitly pending"
+  ],
+  "notes": [
+    "The Terraform SQL module is actual implementation source with neutral identifiers.",
+    "The readiness checker is newly authored portfolio reference code derived from the prepared procedure, not deployed restore automation.",
+    "All green checks use fictional metadata. They do not establish current backup availability, private connectivity or a completed SQL restore."
+  ],
+  "boundary": "Actual SQL infrastructure source plus fictional local readiness checks. No Azure query, restore, database copy or application cutover."
+}

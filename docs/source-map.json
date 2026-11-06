@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "reviewedDate": "2026-11-06",
+  "files": [
+    {
+      "source": "infra/modules/sql/main.tf",
+      "sourceSha256": "0e3b4ee0f9e5a6b075528ddd806d5a830f4f0ab36b7a4edee27ef0c2b57efc9b",
+      "publicFile": "infra/modules/sql/main.tf",
+      "changes": "Actual module; neutral logical resource labels and administrator display name; behavior/defaults retained"
+    },
+    {
+      "source": "infra/modules/sql/variables.tf",
+      "sourceSha256": "3369f3707552c275eae9813703d8e1a7a34ec6aa73de8f0c89e923203427a5a7",
+      "publicFile": "infra/modules/sql/variables.tf",
+      "changes": "Actual module; neutral logical resource labels and administrator display name; behavior/defaults retained"
+    },
+    {
+      "source": "infra/modules/sql/outputs.tf",
+      "sourceSha256": "c456332db90c562da67e98bc7d660e6706a3daf5f2542c191e1ef87bb009baa9",
+      "publicFile": "infra/modules/sql/outputs.tf",
+      "changes": "Actual module; neutral logical resource labels and administrator display name; behavior/defaults retained"
+    },
+    {
+      "source": "infra/modules/sql/versions.tf",
+      "sourceSha256": "b88fcfef92a8571378d3376a6d7e2b7478df1fcaaecfcf56b8ec5e2c831a6118",
+      "publicFile": "infra/modules/sql/versions.tf",
+      "changes": "Actual module; neutral logical resource labels and administrator display name; behavior/defaults retained"
+    },
+    {
+      "source": "security/restore-rehearsals.json",
+      "sourceSha256": "7cd94787f39a33641bc1b1ed06fb121822de02cba7a1fe28b685761c0935b477",
+      "publicFile": "reference/sql-rehearsal-contract.json",
+      "changes": "Extract original SQL rehearsal only; neutral source/prefix; original prepared-not-executed status and dated schema-181 expectation retained"
+    }
+  ],
+  "additionalEvidence": [
+    "Production SQL Terraform overrides S0/Geo/14 days",
+    "October 4 SQL module ownership migration receipt: six no-op moves, no resource changes",
+    "Isolated restore rehearsal runbook: prepared, not executed"
+  ],
+  "publicReferenceCode": "lab/readiness.py and its tests are newly authored local checks, not extracted production automation",
+  "relatedEvidence": [
+    {
+      "source": "infra/platform/production/sql.tf",
+      "sourceSha256": "bbd57656c035fe68072b71f61550eae0ba27e233db7255de6b6f1530e759e105",
+      "publicFile": "infra/main.tf",
+      "relationship": "Production settings used in new parameterized public wrapper; no actual names or IDs"
+    },
+    {
+      "source": "docs/runbooks/production-sql-module-migration-20261004.md",
+      "sourceSha256": "fa4ac50b1450e13657cff39831ab241c223c88956afcf0070dde6cf55f879860",
+      "publicFile": "docs/ACCEPTANCE.md",
+      "relationship": "Dated ownership-change receipt summarized; not a restore receipt"
+    },
+    {
+      "source": "docs/runbooks/isolated-restore-rehearsals.md",
+      "sourceSha256": "ddfc7d50befd43bac7adc257105d3bd227e7080e61379b8069dc7ff6b85d7d9f",
+      "publicFile": "docs/RESTORE-REHEARSAL.md",
+      "relationship": "Prepared procedure adapted with explicit supported-method/isolation boundary"
+    }
+  ]
+}
