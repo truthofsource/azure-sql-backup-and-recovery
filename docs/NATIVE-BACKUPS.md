@@ -1,6 +1,6 @@
 # Native Azure SQL backups: what each option means
 
-For this Standard S0-style workload, Azure SQL manages full, differential and log backups. The service chooses timing; this portfolio does not schedule a custom backup worker. Retention controls how far back eligible recovery points may be available; inspect the actual earliest restore date rather than subtracting fourteen days and assuming a backup exists. [Microsoft automated backup overview](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql)
+For this Standard S0-style database, Azure SQL takes full backups, backups of changes since a full backup, and transaction-log backups. Azure chooses when they run; this project does not schedule a separate backup worker. The retention setting limits how far back recovery may be available. Check the actual earliest restore date rather than assuming a backup exists exactly fourteen days ago. [Microsoft automated backup overview](https://learn.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?view=azuresql)
 
 | Mechanism | Purpose | Selected platform evidence |
 | --- | --- | --- |

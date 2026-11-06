@@ -50,7 +50,7 @@ Geo backup storage is not a running secondary database or automatic application 
 | --- | --- | --- |
 | Actual SQL Terraform module | Defines server/database, retention, private DNS/link and endpoint | [Module](infra/modules/sql/) |
 | Explicit environment profiles | Preserve production S0/Geo/14 versus Basic/Local/seven-day defaults | [Root](infra/main.tf) |
-| Original prepared SQL contract | Preserves readiness holds and acceptance without claiming an executed drill | [Contract](reference/sql-rehearsal-contract.json) |
+| Original prepared SQL contract | Record the required preparation and test conditions without claiming a restore was performed | [Contract](reference/sql-rehearsal-contract.json) |
 | Local readiness checker | Reject wrong source, existing/unowned target, invalid point and incomplete isolation | [Code](lab/readiness.py) |
 | Positive and negative tests | Exercise preparation boundaries without SQL credentials or provider access | [Tests](tests/test_readiness.py) |
 | Read-only validation query | Gather schema/catalog/principal aggregates only on an owned target | [SQL](queries/isolated-restore-validation.sql) |
