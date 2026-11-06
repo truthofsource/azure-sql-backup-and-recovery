@@ -1,5 +1,7 @@
 # Architecture and trust boundaries
 
+**Terms used here:** A nonce is a value used once for a particular encryption key. A private endpoint gives a supported service an address on a private network; access permissions still apply.
+
 The operational API reaches Azure SQL through the selected private endpoint and private DNS link. Entra-only administration and TLS are declared in the actual module. Application roles, database-contained identities and query permissions are other layers, not established merely by this infrastructure existing.
 
 Azure SQL handles native backup creation and recovery. Production's explicit fourteen-day retention and Geo backup storage differ from the shared module's nonproduction defaults. Backups are not a public Blob container managed by our uploader, and the selected source does not create a running geo-secondary or a backup VM.

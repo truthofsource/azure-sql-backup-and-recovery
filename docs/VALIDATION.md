@@ -14,8 +14,8 @@
 
 The [machine record](validation-results.json) contains date and source hashes. Screenshots are real local execution with fictional metadata.
 
-The Python checker/tests are newly authored public reference code. They are not original production restore automation. The Terraform module is actual infrastructure source with neutral labels; mocked providers do not access Azure. Historical SQL module migration evidence shows ownership preservation, not restored data.
+The Python checker/tests are newly authored public reference code. They are not original production restore automation. The Terraform module is actual infrastructure source with neutral labels; simulated cloud-provider operations do not access Azure. Historical SQL module migration evidence shows ownership preservation, not restored data.
 
-The live SQL restore rehearsal remains prepared, not executed. No current backup availability, point-in-time recovery, data-plane permission, private route, contained-user isolation or cloud RTO was tested here. Green readiness inputs are fictional assertions; a real adapter must verify each independently.
+The live SQL practice restore remains prepared, not executed. No current backup availability, point-in-time recovery, data-plane permission, private route, contained-user isolation or cloud RTO was tested here. Green readiness inputs are fictional assertions; a real adapter must verify each independently.
 
 Reproduce using [the command reference](COMMANDS.md). No new hosted Actions run, Azure SQL connection, paid target or service activation was used.

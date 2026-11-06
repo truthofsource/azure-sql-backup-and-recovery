@@ -1,5 +1,7 @@
 # Actual source and public adaptations
 
+**Terms used here:** Provenance means the record of where a release came from and how it was produced.
+
 | Public path | Source relationship |
 | --- | --- |
 | infra/modules/sql/main.tf | Actual SQL module; neutral logical labels/administrator display name only |

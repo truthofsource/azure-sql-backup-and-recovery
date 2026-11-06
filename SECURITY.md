@@ -1,6 +1,6 @@
 # Security and disclosure
 
-No real database data, tenant/subscription IDs, credentials, connection strings, keys, source plans or state files are included. The SQL module is actual infrastructure source with example labels. Applying it creates resources; local mock tests do not.
+No real database data, tenant/subscription IDs, credentials, connection strings, keys, source plans or state files are included. The SQL module is actual infrastructure source with example labels. Applying it creates resources; local tests using simulated cloud responses do not.
 
 The default Python program has no Azure SDK, HTTP client or subprocess adapter. It validates fictional metadata and cannot submit a restore. A prepared result is not authorization. The manual-only GitHub workflow has read-only repository permission and no cloud deployment credentials.
 

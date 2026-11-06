@@ -1,5 +1,7 @@
 # Scaling, costs, strengths and tradeoffs
 
+**Terms used here:** DNS turns a service name into the network address used to reach it.
+
 | Design | Strength | Tradeoff | Growth response |
 | --- | --- | --- | --- |
 | Native automated backups | No custom backup server/cron required | Timing and supported recovery behavior belong to Azure SQL | Monitor actual backup window and rehearse representative restores |

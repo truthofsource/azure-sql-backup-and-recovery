@@ -1,6 +1,6 @@
 # Azure SQL Backup & Point-in-Time Recovery
 
-**Keep the native backup policy explicit. Prepare recovery without risking the source.**
+**Prepare to restore the database without putting the current records at risk.**
 
 [The problem](#the-business-problem) · [The solution](#the-solution) · [What was built](#what-was-built) · [Proof it works](#proof-it-works) · [Commands](docs/COMMANDS.md)
 
@@ -8,17 +8,13 @@
 
 ## The Business Problem
 
-A healthcare-services workforce application keeps onboarding, employee, timesheet and payroll records in Azure SQL. Staff mistakes or a regional incident require a recovery path that preserves the original database, private access and the files/encryption keys those records depend on.
-
-1. **A default mistaken for production:** the shared SQL module defaults to Basic, Local backup storage and seven-day retention. Production explicitly overrides those settings with S0, Geo and fourteen days.
-2. **Backup policy mistaken for recovery proof:** a configured retention window does not establish that a selected restore point was recovered and validated.
-3. **A restored database exposed too early:** retained identities, permissions and application connections must not activate business work against the recovery target.
+The application keeps employee, onboarding, timesheet and payroll records in Azure SQL. A mistake or outage needs a recovery plan that protects the original database and includes the files and encryption keys connected to those records. Backup settings alone do not prove a restore will work.
 
 ## The Solution
 
-Use Azure SQL's native automated backups, declare production retention/redundancy in Terraform, preserve private SQL/Entra controls and prepare an isolated restore procedure with exact source/target and verification requirements.
+Make the database’s backup and retention settings explicit. Identify the recovery time and destination, prepare a separate restore environment, and check the private connection and related files and keys. Keep the difference between a planned restore and a completed restore test visible.
 
-**Business outcome:** Make database protection reviewable and recovery deliberate, while preventing a rehearsal from overwriting or reconnecting the live application.
+**Business outcome:** Make database recovery easier to prepare and review without overstating what has actually been restored and tested.
 
 ### Actual platform implementation
 
@@ -28,7 +24,7 @@ Use Azure SQL's native automated backups, declare production retention/redundanc
 - An October 4 module-ownership migration recorded six no-op address moves and a zero-change post-plan. It did not change the existing backup policy or restore data.
 - The later SQL restore contract is **prepared, not executed**. Its historical schema-181 expectation must be refreshed before a future drill.
 
-The local readiness program is newly authored reference code based on that procedure. It validates fictional inputs and submits no Azure operation. Source configuration, dated acceptance, mock tests and a real restore are separate evidence. [Source map](docs/SOURCE-MAP.md) · [Acceptance matrix](docs/ACCEPTANCE.md).
+The local readiness program is newly authored reference code based on that procedure. It validates fictional inputs and submits no Azure operation. Source configuration, dated acceptance, tests using simulated cloud responses and a real restore are separate evidence. [Source map](docs/SOURCE-MAP.md) · [Acceptance matrix](docs/ACCEPTANCE.md).
 
 ## Architecture
 
@@ -61,7 +57,7 @@ Geo backup storage is not a running secondary database or automatic application 
 
 ## Proof It Works
 
-**Local validation:** 16 readiness tests, seven demo assertions and three Terraform mock tests passed. No cloud restore or resource operation.
+**Local validation:** 16 readiness tests, seven demo assertions and three Terraform tests using simulated cloud responses passed. No cloud restore or resource operation.
 
 ### 1. Infrastructure preserves the production policy and private boundary
 

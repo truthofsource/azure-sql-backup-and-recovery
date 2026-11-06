@@ -1,5 +1,7 @@
 # Operations and troubleshooting
 
+**Terms used here:** DNS turns a service name into the network address used to reach it.
+
 | Symptom | Investigate | Safe response |
 | --- | --- | --- |
 | Desired point is unavailable | Actual earliest window, database age/deletion state, selected recovery method | Select only service-supported history; retention configuration is not a receipt |
