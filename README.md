@@ -2,7 +2,7 @@
 
 **Prepare to restore the database without putting the current records at risk.**
 
-[The problem](#the-business-problem) · [The solution](#the-solution) · [What was built](#what-was-built) · [Proof it works](#proof-it-works) · [Commands](docs/COMMANDS.md)
+[The problem](#the-business-problem) · [The solution](#the-solution) · [What was built](#what-was-built) · [Proof it works](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
 
 ![Working SQL recovery readiness reference](docs/images/01-overview.png)
 
@@ -25,6 +25,18 @@ Make the database’s backup and retention settings explicit. Identify the recov
 - The later SQL restore contract is **prepared, not executed**. Its historical schema-181 expectation must be refreshed before a future drill.
 
 The local readiness program is newly authored reference code based on that procedure. It validates fictional inputs and submits no Azure operation. Source configuration, dated acceptance, tests using simulated cloud responses and a real restore are separate evidence. [Source map](docs/SOURCE-MAP.md) · [Acceptance matrix](docs/ACCEPTANCE.md).
+
+## Step by Step
+
+A short walkthrough of the process, with technical instructions and evidence limits in the sections below.
+
+1. **Review backup coverage** — Confirm the database backup retention and the time range available for recovery. Keep live and test environment settings distinct.
+
+2. **Choose a separate destination** — Identify the intended recovery time and an isolated restore target. Check ownership, network access and related files or keys before proceeding.
+
+3. **Run the readiness checks** — The local checker tests the proposed recovery details using fictional inputs. It does not submit an Azure restore or replace the live database.
+
+4. **Plan the final verification** — The prepared rehearsal calls for checking restored records, access and application compatibility. That live restore rehearsal has not been completed in this case study.
 
 ## Architecture
 
