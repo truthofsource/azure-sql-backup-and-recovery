@@ -26,15 +26,28 @@ Make the database’s backup and retention settings explicit. Identify the recov
 
 The local readiness program is newly authored reference code based on that procedure. It validates fictional inputs and submits no Azure operation. Source configuration, dated acceptance, tests using simulated cloud responses and a real restore are separate evidence. [Source map](docs/SOURCE-MAP.md) · [Acceptance matrix](docs/ACCEPTANCE.md).
 
+## Tools Used and What They Do
+
+| Tool or service | What it does | Where it fits |
+| --- | --- | --- |
+| Azure SQL Database backup/restore features | Provide supported database recovery methods and retained points. | Actual service capability; a new hosted restore was not executed for this project. |
+| Azure CLI | Inspect supported recovery metadata and operation status. | Operating utility; the local checker has no cloud restore adapter. |
+| T-SQL queries | Check schema, migration history, safe aggregates and effective permissions. | Selected validation queries; not a complete business acceptance suite. |
+| Microsoft Entra ID and contained SQL users | Control which identity can connect and execute database operations. | Actual access layers; administrative reads do not prove runtime grants. |
+| Azure Key Vault and Blob Storage | Supply encryption-key and file dependencies needed by the recovered application. | Separate recovery dependencies, not restored merely by SQL PITR. |
+| Python and Terraform | Check fictional recovery plans and selected infrastructure defaults. | Local/reference validation; not measured production RTO or restore completion. |
+
+Point-in-time restore, database copy and geo-restore are different operations. The manual-only GitHub workflow does not submit any of them.
+
 ## Step by Step
 
 A short walkthrough of the process, with technical instructions and evidence limits in the sections below.
 
-1. **Review backup coverage** — Confirm the database backup retention and the time range available for recovery. Keep live and test environment settings distinct.
+1. **Review backup coverage (Azure SQL metadata)** — Confirm the database backup retention and the time range available for recovery. Keep live and test environment settings distinct.
 
 2. **Choose a separate destination** — Identify the intended recovery time and an isolated restore target. Check ownership, network access and related files or keys before proceeding.
 
-3. **Run the readiness checks** — The local checker tests the proposed recovery details using fictional inputs. It does not submit an Azure restore or replace the live database.
+3. **Run the readiness checks (Python readiness checker)** — The local checker tests the proposed recovery details using fictional inputs. It does not submit an Azure restore or replace the live database.
 
 4. **Plan the final verification** — The prepared rehearsal calls for checking restored records, access and application compatibility. That live restore rehearsal has not been completed in this case study.
 
