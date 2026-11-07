@@ -132,6 +132,10 @@ The documented standard CLI PITR path creates another database on the source log
 
 Fourteen-day retention is a time window, not a guaranteed RPO or restore duration. Larger databases, transaction replay, target compute, private networking and dependencies affect recovery. Geo backups and longer retention add storage/transfer considerations. [Strengths, weaknesses and tradeoffs](docs/SCALING.md).
 
+## Troubleshooting Lessons
+
+A production review action exposed a missing column grant, and a wider check found other runtime write gaps. The repair used exact grants and application-identity probes, illustrating why a correct schema alone does not establish a usable database. [Read the incident, evidence and verification](docs/LESSONS-LEARNED.md).
+
 ## Project Guides
 
 | Guide | Purpose |
