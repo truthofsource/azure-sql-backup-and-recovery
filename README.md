@@ -8,7 +8,11 @@
 
 ## The Business Problem
 
-The application keeps employee, onboarding, timesheet and payroll records in Azure SQL. A mistake or outage needs a recovery plan that protects the original database and includes the files and encryption keys connected to those records. Backup settings alone do not prove a restore will work.
+Employee profiles, onboarding progress, timesheets and payroll-related records depend on the application database. An accidental update, deletion or service incident can affect several business processes at once. Recovery needs an agreed point in time and a safe destination before anyone changes the live database.
+
+The records also refer to uploaded files and encrypted values. Restoring database rows from one time while using missing documents or unavailable key versions can leave an apparently restored system unable to support actual work. Backup retention settings describe available protection, but they do not prove that the operator can connect to and validate a restored database.
+
+The business need was a clearly scoped database-recovery procedure that protects the current system, identifies related dependencies and distinguishes prepared restore checks from tests that have actually been completed.
 
 ## The Solution
 
