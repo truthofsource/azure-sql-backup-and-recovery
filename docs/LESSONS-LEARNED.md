@@ -22,4 +22,4 @@ The practical sequence is: identify the failing boundary, preserve safe correlat
 
 ## Related project details
 
-- [Application permission incident](https://github.com/truthofsource/api-business-logic-and-workflow-controls/blob/main/docs/LESSONS-LEARNED.md)
+- [Application permission incident](https://github.com/truthofsource/azure-api-routes/blob/main/examples/business-rules/docs/LESSONS-LEARNED.md)

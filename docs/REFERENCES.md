@@ -15,7 +15,7 @@ The author's operational workforce platform SQL module, production caller, Octob
 
 - [Broader backup and recovery](https://github.com/truthofsource/azure-backup-and-recovery)
 - [Key Vault envelope encryption](https://github.com/truthofsource/azure-envelope-encryption)
-- [Private cloud networking](https://github.com/truthofsource/azure-private-networking)
+- [Private cloud networking](https://github.com/truthofsource/azure-hub-spoke-networking/tree/main/examples/private-access)
 
 ## Presentation
 
