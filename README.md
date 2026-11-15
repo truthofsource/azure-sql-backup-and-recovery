@@ -1,10 +1,12 @@
 # Azure SQL Backup & Point-in-Time Recovery
 
+[![Azure SQL backup and PITR — illustrated overview](docs/diagrams/architecture.png)](docs/diagrams/architecture.svg)
+
+[View SVG](docs/diagrams/architecture.svg) · [Download PNG](docs/diagrams/architecture.png) · [Edit in draw.io](docs/diagrams/architecture.drawio)
+
 **Prepare to restore the database without putting the current records at risk.**
 
 [The problem](#the-business-problem) · [The solution](#the-solution) · [What was built](#what-was-built) · [Proof it works](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
-
-![Working SQL recovery readiness reference](docs/images/01-overview.png)
 
 ## The Business Problem
 
@@ -172,7 +174,7 @@ Save the requested UTC time, restore start/end, observed marker and unresolved a
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -206,19 +208,7 @@ A short walkthrough of the process, with technical instructions and evidence lim
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  App[Authorized application] --> Private[Private endpoint + DNS]
-  Entra[Entra identity] --> SQL[(Azure SQL S0)]
-  Private --> SQL
-  SQL --> Native[Azure-managed full / differential / log backups]
-  Native --> Retain[14-day PITR + Geo backup redundancy]
-  Retain -. separately authorized recovery .-> Target[New owned recovery database]
-  Target --> Review[Contained permissions / schema / safe aggregates]
-  Keys[Matching field-encryption key versions] --> Review
-  Files[Matching Blob bytes and ownership] --> Review
-  Review --> Decision[Reviewed recovery or cleanup; no automatic cutover]
-```
+[View the illustrated project overview](docs/diagrams/architecture.svg).
 
 Geo backup storage is not a running secondary database or automatic application failover. This project adds no custom SQL backup worker, BACPAC schedule or Azure Backup vault.
 
@@ -258,8 +248,6 @@ python -B -m lab demo
 **Look for:** wrong-source, source-overwrite, existing-target, future/too-old point, unsupported method/server and missing-isolation cases are rejected. The successful result says **prepared-not-submitted**, with `productionAuthorization=false` and zero Azure operations. It is not a restored database.
 
 ### 3. Evidence is visible and reproducible
-
-![Executed local preparation assertions](docs/images/02-validation.png)
 
 Desktop/mobile screenshots are captured from this working program. Green checks describe fictional readiness guards, not successful Azure restores. [Dated validation](docs/VALIDATION.md) records exact counts and limits.
 

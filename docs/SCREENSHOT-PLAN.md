@@ -1,6 +1,8 @@
 # Evidence capture plan
 
-Included images are actual local workbench captures with fictional metadata. No Azure sign-in, resource read, database restore or paid target was used.
+Placeholder screenshots were removed on November 15, 2026. Written test results below retain their original dates and scope; historical screenshot references describe earlier captures. Proper Azure and application screenshots are deferred. The illustrated architecture is a source-based explanation, not a live-service screenshot.
+
+The former local workbench captures used fictional metadata and have been removed. No Azure sign-in, resource read, database restore or paid target was used.
 
 Later nonproduction screenshots can show: the exact database's retention/redundancy and earliest point; server networking/Entra settings; Terraform production versus nonproduction plans; and, after a separately authorized rehearsal, an owned restore operation plus safe aggregate validation and cleanup.
 
