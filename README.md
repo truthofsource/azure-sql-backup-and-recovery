@@ -45,6 +45,19 @@ Point-in-time restore, database copy and geo-restore are different operations. T
 
 ## Step by Step
 
+Build an independent version with the [reader-operated walkthrough](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
+
+For this project, your working starting point is [`lab/readiness.py`](lab/readiness.py). Expected scope: A prepared-not-submitted restore decision; no Azure database restoration.
+
+1. **Create your own workspace.** Copy the project and record the source version before editing.
+2. **Prepare and run the baseline.** Use the documented runtimes and selected dependencies, then run the local checks.
+3. **Make your own change.** Edit a project-specific fixture, configuration or rule and rerun its positive and negative cases.
+4. **Verify and document your result.** Capture your own evidence and distinguish a local example from a live integration.
+5. **Extend and close out deliberately.** Plan any independent cloud work separately and clean up only what you created.
+
+<details>
+<summary>How the underlying platform process works</summary>
+
 A short walkthrough of the process, with technical instructions and evidence limits in the sections below.
 
 1. **Review backup coverage (Azure SQL metadata)** — Confirm the database backup retention and the time range available for recovery. Keep live and test environment settings distinct.
@@ -54,6 +67,8 @@ A short walkthrough of the process, with technical instructions and evidence lim
 3. **Run the readiness checks (Python readiness checker)** — The local checker tests the proposed recovery details using fictional inputs. It does not submit an Azure restore or replace the live database.
 
 4. **Plan the final verification** — The prepared rehearsal calls for checking restored records, access and application compatibility. That live restore rehearsal has not been completed in this case study.
+
+</details>
 
 ## Architecture
 
