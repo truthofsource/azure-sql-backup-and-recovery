@@ -45,7 +45,7 @@ Point-in-time restore, database copy and geo-restore are different operations. T
 
 ## Step by Step
 
-Build an independent version with the [reader-operated walkthrough](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
+Build an independent version with the [step-by-step build guide](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
 
 For this project, your working starting point is [`lab/readiness.py`](lab/readiness.py). Expected scope: A prepared-not-submitted restore decision; no Azure database restoration.
 
