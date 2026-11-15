@@ -249,7 +249,7 @@ python -B -m lab demo
 
 ### 3. Evidence is visible and reproducible
 
-Desktop/mobile screenshots are captured from this working program. Green checks describe fictional readiness guards, not successful Azure restores. [Dated validation](docs/VALIDATION.md) records exact counts and limits.
+The desktop/mobile local program remains available to run; proper Azure screenshots are deferred. Green checks describe fictional readiness guards, not successful Azure restores. [Dated validation](docs/VALIDATION.md) records exact counts and limits.
 
 ## Run It Locally
 
